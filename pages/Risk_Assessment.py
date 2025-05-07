@@ -65,7 +65,7 @@ with st.expander("👤 Personal Information", expanded=True):
 with st.expander("🩺 Health Information", expanded=True):
     hypertension = st.radio("Do you have hypertension?", ["Select option", "Yes", "No"], key="hypertension")
     heart_disease = st.radio("Do you have heart disease?", ["Select option", "Yes", "No"], key="heart_disease")
-    avg_glucose_level = st.number_input("Average Glucose Level (mg/dL)", min_value=55.0, max_value=300.0, value=55.0, step=1, key="avg_glucose_level")
+    avg_glucose_level = st.number_input("Average Glucose Level (mg/dL)", min_value=55.0, max_value=300.0, value=55.0, step=1.0, key="avg_glucose_level")
     smoking_status = st.selectbox("Smoking Status", ["Select option", "never smoked", "formerly smoked", "smokes"], key="smoking_status")
 
 # ── Consent & Disclaimer ───────────────────────────────────────────────────────
