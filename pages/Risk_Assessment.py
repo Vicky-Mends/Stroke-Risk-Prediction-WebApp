@@ -65,7 +65,7 @@ with st.expander("👤 Personal Information", expanded=True):
 with st.expander("🩺 Health Information", expanded=True):
     hypertension = st.radio("Do you have hypertension?", ["Select option", "Yes", "No"], key="hypertension")
     heart_disease = st.radio("Do you have heart disease?", ["Select option", "Yes", "No"], key="heart_disease")
-    avg_glucose_level = st.number_input("Average Glucose Level (mg/dL)", min_value=55.0, max_value=300.0, value=55.0, step=0.1, key="avg_glucose_level")
+    avg_glucose_level = st.number_input("Average Glucose Level (mg/dL)", min_value=55.0, max_value=300.0, value=55.0, step=1, key="avg_glucose_level")
     smoking_status = st.selectbox("Smoking Status", ["Select option", "never smoked", "formerly smoked", "smokes"], key="smoking_status")
 
 # ── Consent & Disclaimer ───────────────────────────────────────────────────────
@@ -88,9 +88,9 @@ if st.button("Calculate Stroke Risk 📈"):
         heart_map = {"Yes":1, "No":0}
         htn_map   = {"Yes":1, "No":0}
         married_map = {"Yes":1, "No":0}
-        smoke_map = {"never smoked":0, "formerly smoked":1, "smokes":2}
-        work_map  = {"Private":0, "Self-employed":1, "Govt_job":2, "Never_worked":3}
-        gender_map= {"Male":0, "Female":1}
+        smoke_map = {"never smoked":1, "formerly smoked":0, "smokes":2}
+        work_map  = {"Private":2, "Self-employed":3, "Govt_job":0, "Never_worked":1}
+        gender_map= {"Male":1, "Female":0}
 
         raw = [
             age,

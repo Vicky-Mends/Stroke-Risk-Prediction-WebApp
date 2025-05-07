@@ -104,15 +104,15 @@ if "user_data" in st.session_state and "prediction_prob" in st.session_state:
     UD = st.session_state.user_data
     # Rebuild raw feature vector in training order
     raw = [
-        UD["age"],
-        UD["avg_glucose_level"],
-        1 if UD["heart_disease"] == "Yes" else 0,
-        1 if UD["hypertension"] == "Yes" else 0,
-        1 if UD["ever_married"] == "Yes" else 0,
-        {"never smoked":0, "formerly smoked":1, "smokes":2}[UD["smoking_status"]],
-        {"Private":0, "Self-employed":1, "Govt_job":2, "Never_worked":4}[UD["work_type"]],
-        {"Male":0, "Female":1}[UD["gender"]]
-    ]
+    UD["age"],
+    UD["avg_glucose_level"],
+    1 if UD["heart_disease"] == "Yes" else 0,
+    1 if UD["hypertension"] == "Yes" else 0,
+    1 if UD["ever_married"] == "Yes" else 0,
+    {"formerly smoked": 0, "smokes": 2, "never smoked": 1}[UD["smoking_status"]],
+    {"Private": 2, "Govt_job": 0, "Self-employed": 3, "Never_worked": 1}[UD["work_type"]],
+    {"Male": 1, "Female": 0}[UD["gender"]]
+]
     X_raw    = np.array(raw).reshape(1, -1)
     X_poly   = add_poly(X_raw)
     X_scaled = (X_poly - SCALER_MEAN) / SCALER_SCALE
